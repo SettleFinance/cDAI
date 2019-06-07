@@ -2,16 +2,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #0e1a21;
+  background: #fdf7e7;
 }
 
 .container {
   text-align: center;
-  width: fit-content;
   display: block;
   margin: 40px auto;
-  background: #283943;
-  color: white;
+  color: #66CBB8;
   padding: 50px;
   font-family: sans-serif;
   width: 300px;
@@ -87,7 +85,7 @@ body {
 }
 
 .container button {
-  background: #5cab00;
+  background: #F76010;
   border: none;
   color: white;
   padding: 0.5em 2em;
@@ -97,7 +95,7 @@ body {
 }
 
 .container button:disabled {
-  background: #5cab008a;
+  background: #f7601073;
   cursor: text;
 }
 
@@ -138,7 +136,8 @@ body {
 
 .info h3 {
   margin-bottom: 0;
-  margin-top: 30px;
+  color: #F76010;
+  margin-top: 10px;
   font-weight: 300;
 }
 
@@ -152,6 +151,7 @@ body {
 
 .info img {
   margin-top: 30px;
+  width: 330px;
 }
 
 .standalone-link{

@@ -90,11 +90,8 @@ class App extends Component {
     return (
       <div className="app">
         <div className="info">
-          <a href="https://dex.ag" target="_blank">
-            <img src="/logo.svg" />
-          </a>
-          <h3>Trade at the best price with a few lines of code</h3>
-          <a href="https://docs.dex.ag">Learn more about the DEX.AG SDK</a>
+          <img src="/logo.svg" />
+          <h3>{'ETH <=> DAI'}</h3>
         </div>
         <div className="container">
           <div className="title">
