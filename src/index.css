@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #0e1a21;
+}
+
+.container {
+  text-align: center;
+  width: fit-content;
+  display: block;
+  margin: 40px auto;
+  background: #283943;
+  color: white;
+  padding: 50px;
+  font-family: sans-serif;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.title {
+  font-weight: 400;
+}
+
+.title p {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.status-message div {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(166, 166, 166);
+  margin-bottom: 0;
+  background: #0e1921;
+  padding: 13px 10px;
+  margin-top: 20px;
+}
+
+.status-message h3 {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.status-message h3 img {
+  width: 15px;
+  margin-right: 10px;
+  margin-bottom: -2px;
+}
+
+.status-message h2 {
+  margin: auto;
+  font-size: 13px;
+  font-weight: 400;
+  user-select: none;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.status-message h2:hover {
+  color: white;
+}
+
+.status-message a {
+  color: white;
+}
+
+.container .price {
+  font-weight: 300;
+}
+
+.container .price strong {
+  margin: 0 7px;
+}
+
+.container .price-total {
+  margin: 25px 0;
+  font-size: 15px;
+}
+
+.container .price-total span {
+  text-transform: capitalize;
+  display: block;
+  margin-top: 10px;
+}
+
+.container button {
+  background: #5cab00;
+  border: none;
+  color: white;
+  padding: 0.5em 2em;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.container button:disabled {
+  background: #5cab008a;
+  cursor: text;
+}
+
+.container select {
+  background: transparent;
+  color: white;
+  padding: 5px 10px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.container select option {
+  color: black;
+}
+
+.container .amount {
+  font-size: 14px;
+}
+
+.container .amount input {
+  background: transparent;
+  border: 1px solid rgb(166, 166, 166);
+  padding: 5px 10px;
+  color: white;
+  width: 135px;
+  margin-top: 20px;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.info {
+  text-align: center;
+  color: white;
+}
+
+.info h3 {
+  margin-bottom: 0;
+  margin-top: 30px;
+  font-weight: 300;
+}
+
+.info a {
+  color: #c7c7c7;
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.info img {
+  margin-top: 30px;
+}
+
+.standalone-link{
+  text-align: center;
+  display: block;
+  color: #c7c7c7;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@media(max-width:500px) {
+  .container {
+    box-sizing: border-box;
+    padding: 30px 5px;
+    width: 95%;
+  }
+  .info h3 {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+}

@@ -1,0 +1,27 @@
+version: 0.2
+
+env:
+  parameter-store:
+    build_ssh_key: "build-ssh-key-secure"
+
+phases:
+  build:
+    commands:
+      - mkdir -p ~/.ssh
+      - echo "$build_ssh_key" > ~/.ssh/id_rsa
+      - chmod 600 ~/.ssh/id_rsa
+      - echo Beginning Build
+      - npm install
+      - npm run build
+      - rm -rf .gitignore
+      - rm -rf node_modules/
+      - rm -rf package-lock.json 
+      - rm -rf public
+      - rm -rf src
+      - cp -R build/. .
+      - rm -rf build/
+      - ls -la
+      - echo Build Complete
+artifacts:
+  files:
+    - '**/*' 
