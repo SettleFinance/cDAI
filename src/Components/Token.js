@@ -6,22 +6,31 @@ export default class Token extends React.Component {
     this.state = {
     };
   }
-  componentDidMount() {
-  }
   render() {
     let {type, changeToken} = this.props;
-    let token = type=='to'?'DAI':'ETH';
+    let token = type=='to'?'cDAI':'DAI';
+    console.log(token)
     return (
-      <select defaultValue={token} onChange={(e)=>changeToken(type, e.target.value)}>
-        <option value="ETH">ETH</option>
-        <option value="DAI">DAI</option>
-        <option value="MKR">MKR</option>
-        <option value="BAT">BAT</option>
-        <option value="USDC">USDC</option>
-        <option value="LINK">LINK</option>
-        <option value="KNC">KNC</option>
-        <option value="ZRX">ZRX</option>
-      </select>
+      <span className="token-dropdown-container">
+        <select defaultValue={token} onChange={(e)=>changeToken(type, e.target.value)}>
+          {token!='DAI'&&<option value="cDAI">cDAI</option>}
+          <option value="DAI">DAI</option>
+          <option value="ETH">ETH</option>
+          <option value="USDC">USDC</option>
+          <option value="MKR">MKR</option>
+          <option value="BAT">BAT</option>
+          <option value="LINK">LINK</option>
+          <option value="ZRX">ZRX</option>
+          <option value="KNC">KNC</option>
+          <option value="BNT">BNT</option>
+          <option value="WBTC">WBTC</option>
+          <option value="SUSD">SUSD</option>
+          <option value="TUSD">TUSD</option>
+          <option value="DGX">DGX</option>
+          <option value="SNT">SNT</option>
+        </select>
+        <img src="/arrow_down.svg" />
+      </span>
     );
   }
 }

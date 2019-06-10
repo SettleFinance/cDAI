@@ -6,11 +6,6 @@ export default class Status extends React.Component {
     this.state = {
     };
   }
-  componentDidMount() {
-  }
-  etherScan = (data) =>{
-    return <a href={`https://etherscan.io/tx/${data}`} target="_blank">{data.substring(0,8)}</a>;
-  }
   render() {
     let {web3Status, closeStatus} = this.props;
     if(!web3Status) web3Status = {} // default state

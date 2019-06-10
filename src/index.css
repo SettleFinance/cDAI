@@ -1,36 +1,48 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'aleo';
   background: #fdf7e7;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 
 .container {
   text-align: center;
   display: block;
   margin: 40px auto;
-  color: #66CBB8;
+  color: #559995;
   padding: 50px;
-  font-family: sans-serif;
   width: 300px;
   border-radius: 5px;
+  margin-top: 0;
+  padding-bottom: 0;
 }
 
 .title {
   font-weight: 400;
+  text-align: left;
 }
 
 .title p {
   display: inline-block;
-  margin: 0 15px;
+  margin: 0;
+  width: 85px;
 }
 
 .status-message div {
   font-size: 14px;
   font-weight: 400;
-  color: rgb(166, 166, 166);
+  color: rgb(56, 104, 97);
   margin-bottom: 0;
-  background: #0e1921;
+  background: #66cbb71a;
   padding: 13px 10px;
   margin-top: 20px;
 }
@@ -58,7 +70,7 @@ body {
 }
 
 .status-message h2:hover {
-  color: white;
+  color: black;
 }
 
 .status-message a {
@@ -74,24 +86,29 @@ body {
 }
 
 .container .price-total {
-  margin: 25px 0;
+  margin-top: 35px;
   font-size: 15px;
+  margin-bottom: 20px;
 }
 
 .container .price-total span {
   text-transform: capitalize;
-  display: block;
-  margin-top: 10px;
+}
+
+.container .price-total{
+  color: #386861;
 }
 
 .container button {
   background: #F76010;
   border: none;
   color: white;
-  padding: 0.5em 2em;
+  padding: 10px 0;
   font-size: 14px;
   cursor: pointer;
   user-select: none;
+  border-radius: 7px;
+  width: 100%;
 }
 
 .container button:disabled {
@@ -101,13 +118,15 @@ body {
 
 .container select {
   background: transparent;
-  color: white;
+  color: #559995;
   padding: 5px 10px;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
   cursor: pointer;
   border-radius: 2px;
+  border: none;
+  font-size: 15px;
+  font-family: 'aleo';
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .container select option {
@@ -116,22 +135,25 @@ body {
 
 .container .amount {
   font-size: 14px;
+  display: inline-block;
 }
 
 .container .amount input {
   background: transparent;
   border: 1px solid rgb(166, 166, 166);
   padding: 5px 10px;
-  color: white;
-  width: 135px;
+  border: 1px solid #559995;
+  color: #757575;
+  width: 80px;
   margin-top: 20px;
   border-radius: 2px;
-  margin-right: 10px;
+  margin-right: 35px;
 }
 
 .info {
   text-align: center;
   color: white;
+  margin-top: 70px;
 }
 
 .info h3 {
@@ -152,14 +174,35 @@ body {
 .info img {
   margin-top: 30px;
   width: 330px;
+  max-width: 75%;
 }
 
-.standalone-link{
-  text-align: center;
-  display: block;
-  color: #c7c7c7;
-  font-size: 14px;
-  font-weight: 300;
+.buy-sell span{
+  margin-right: 15px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.buy-sell span.selected{
+  border-bottom: 1px solid #559995;
+}
+
+.token-dropdown-container{
+  position: relative;
+  display: inline-block;
+  width: 65px;
+}
+
+.token-dropdown-container select{
+  width: 100%;
+  padding-left: 1px;
+  outline: none;
+}
+
+.token-dropdown-container img{
+  position: absolute;
+  top: 9px;
+  margin-left: -12px;
 }
 
 @media(max-width:500px) {

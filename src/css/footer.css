@@ -1,0 +1,31 @@
+.footer-container{
+  text-align: center;
+  color: #757575;
+  font-size: 13px;
+  line-height: 16px;
+  font-family: 'Overpass Mono';
+  margin-bottom: 25px;
+}
+.standalone-link{
+  text-align: center;
+  display: inline-block;
+  color: #757575;
+  font-weight: 300;
+}
+.footer-text{
+  width: 315px;
+  margin: auto;
+  text-align: left;
+  margin-top: 50px;
+}
+.footer-text a{
+  color: #757575;
+}
+.footer-links{
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+.footer-links a{
+  display: inline-block;
+  color: #757575;
+}

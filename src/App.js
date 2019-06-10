@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import {DEXAG} from 'dexag-sdk'
 
 // Components
-import Token from './Components/Token'
-import Totals from './Components/Totals'
-import Status from './Components/Status'
-import Amount from './Components/Amount'
+import Totals from './components/totals'
+import Status from './components/status'
+import Payment from './components/payment'
+import Info from './components/info'
+import Footer from './components/footer'
+import Button from './components/button'
+import Utility from './utility'
 
 const sdk = new DEXAG()
 const orderModel = {
@@ -21,9 +24,10 @@ class App extends Component {
       order: orderModel,
       amount: 1,
       pair: {
-        to: 'DAI',
-        from: 'ETH'
-      }
+        to: 'CDAI',
+        from: 'DAI'
+      },
+      type: 'buy'
     }
   }
   componentDidMount(){
@@ -37,11 +41,11 @@ class App extends Component {
     this.findTrades()
   }
   findTrades = async() =>{
-    let {amount, pair} = this.state;
+    let {amount, pair, type} = this.state;
     // reset order in UI
     this.setState({order: orderModel})
     // get the best price for the pair and amount
-    let trade = await sdk.getTrade({to: pair.to, from: pair.from, amount: amount})
+    let trade = await sdk.getTrade({to: type=='buy'?pair.to:pair.from, from: type=='buy'?pair.from:pair.to, amount: amount})
     this.setState({order: trade})
     console.log(trade)
   }
@@ -52,11 +56,7 @@ class App extends Component {
     this.setState({amount: amount})
     // reset order in UI
     this.setState({order: orderModel})
-    // wait for user to stop typing
-    if(this.timeout) clearTimeout(this.timeout);
-      this.timeout = setTimeout(() => {
-      this.findTrades()
-    }, 1000);
+    Utility.debounce(this.findTrades)
   }
   changeToken = (type, token) =>{
     var pair = this.state.pair;
@@ -82,28 +82,43 @@ class App extends Component {
   }
   timeoutStatus = (status) => {
     // hide rejected message
-    if(status=='rejected') setTimeout(()=>{this.closeStatus()},3500)
+    if(status=='rejected') setTimeout(()=>{this.closeStatus()}, 3500)
+  }
+  changeType = async (type) => {
+    this.setState({type})
+    Utility.debounce(this.findTrades);
   }
   render() {
     let {source} = this.state.order.metadata;
-    let {order, pair, web3Status, amount} = this.state;
+    let {order, pair, web3Status, amount, type} = this.state;
     return (
       <div className="app">
-        <div className="info">
-          <img src="/logo.svg" />
-          <h3>{'ETH <=> DAI'}</h3>
-        </div>
+        <Info />
+
         <div className="container">
-          <div className="title">
-            <p>Buy:</p> <Token type="to" pair={pair} findTrades={this.findTrades} changeToken={this.changeToken}/>
-            <p>With:</p> <Token type="from" pair={pair} findTrades={this.findTrades} changeToken={this.changeToken}/>
-          </div>
-          <Amount changeAmount={this.changeAmount} pair={pair} />
+          <Payment
+          pair={pair}
+          changeAmount={this.changeAmount}
+          findTrades={this.findTrades}
+          changeToken={this.changeToken}
+          changeType={this.changeType}
+          type={type} />
+
           <Totals source={source} amount={amount} pair={pair} />
-          <button onClick={()=>this.trade()} disabled={order==orderModel}>Buy</button>
+          
+          <Button
+          order={order}
+          orderModel={orderModel}
+          trade={this.trade}
+          amount={amount}
+          source={source}
+          pair={pair}
+          type={type} />
+
           <Status web3Status={web3Status} closeStatus={this.closeStatus}/>
         </div>
-        <a href="https://github.com/SettleFinance/DEXAG-Checkout" target="_blank" className="standalone-link">Fork me on Github</a>
+
+        <Footer />
       </div>
     );
   }
