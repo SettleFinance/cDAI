@@ -9,7 +9,6 @@ export default class Token extends React.Component {
   render() {
     let {type, changeToken} = this.props;
     let token = type=='to'?'cDAI':'DAI';
-    console.log(token)
     return (
       <span className="token-dropdown-container">
         <select defaultValue={token} onChange={(e)=>changeToken(type, e.target.value)}>

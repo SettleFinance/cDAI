@@ -12,7 +12,7 @@ export default class Button extends React.Component {
     let {order, orderModel, trade, amount, source, pair, type} = this.props;
     return (
       <button onClick={()=>trade()} disabled={order==orderModel}>
-        {type=='buy'?'Buy':'Sell'} {amount} cDAI for {source.price ? Utility.formatPrice(source.price*amount):'...'} {pair.from}
+        {type=='buy'?'Buy':'Sell'} {amount} cDAI for {source.price ? Utility.formatPrice(type=='buy'?source.price*amount:amount/source.price):'...'} {pair.from}
       </button>
     );
   }
