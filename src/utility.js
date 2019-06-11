@@ -8,12 +8,12 @@ var Utility = {
     if(dex!=undefined) return dex.replace(/-/g,' ').toLowerCase()
     return dex
   },
-  debounce: (func) => {
+  debounce: (func, args) => {
     if (this.timer) {
       clearTimeout(this.timer)
     }
     this.timer = setTimeout(function() {
-      func()
+      func(args)
       this.timer = null;
     }.bind(this), 750);
   }
