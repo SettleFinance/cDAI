@@ -42,18 +42,15 @@ class App extends Component {
   }
   findTrades = async(purchase_type) =>{
     let {amount, pair, type} = this.state;
-    let {source} = this.state.order.metadata;
     // reset order in UI
     this.setState({order: orderModel})
     // get the best price for the pair and amount
-    let trade = await sdk.getTrade({to: type=='buy'?pair.to:pair.from, from: type=='buy'?pair.from:pair.to, amount: type=='buy'?amount:(this.getAmount('top').value/this.getAmount('bottom').value) })
+    let trade = await sdk.getTrade({to: type=='buy'?pair.to:pair.from, from: type=='buy'?pair.from:pair.to, amount: amount})
     this.setState({order: trade}, ()=>{
-      console.log(purchase_type)
-      let {source} = this.state.order.metadata;
-      if(purchase_type==false) this.getAmount('bottom').value =
-      Utility.formatPrice(this.getAmount('top').value / source.price)
+      let {source} = trade.metadata;
+      console.log(purchase_type, source.price, amount)
+      document.getElementById('amount-top').value = Utility.formatPrice(type=='buy'?source.price*amount:amount/source.price);
     })
-    this.setInput({order: trade})
     console.log(trade)
   }
   changeAmount = (amount, type) => {
@@ -91,13 +88,6 @@ class App extends Component {
   timeoutStatus = (status) => {
     // hide rejected message
     if(status=='rejected') setTimeout(()=>{this.closeStatus()}, 3500)
-  }
-  setInput = (order) => {
-    let {source} = this.state.order.metadata;
-    this.getAmount('top').value = Utility.formatPrice(source.price * this.getAmount('bottom').value)
-  }
-  getAmount = (type) => {
-    return document.getElementById(`amount-${type}`);
   }
   changeType = async (type) => {
     var prev_type = this.state.type;

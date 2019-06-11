@@ -1,7 +1,7 @@
 var Utility = {
   formatPrice: (price) => {
     // handle large and small values
-    return price>1?price.toFixed(2):price.toPrecision(3)
+    return price>1?price.toFixed(2):price.toPrecision(4)
   },
   cleanDex: (dex) => {
     // format text in UI
