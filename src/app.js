@@ -54,10 +54,7 @@ class App extends Component {
     console.log(trade)
   }
   changeAmount = (amount, type) => {
-    // amount isnt a real number
-    if(!(amount>0)) return;
     // update amount
-    console.log('type', type)
     let {input} = this.state;
     input[type?'bottom':'top'] = amount;
     this.setState({input})
