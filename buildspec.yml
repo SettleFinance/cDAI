@@ -13,12 +13,6 @@ phases:
       - echo Beginning Build
       - npm install
       - npm run build
-      - rm -rf .gitignore
-      - rm -rf package-lock.json 
-      - rm -rf public
-      - rm -rf src
-      - cp -R build/. .
-      - rm -rf build/
       - ls -la
       - echo Build Complete
 artifacts:
