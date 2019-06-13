@@ -14,7 +14,6 @@ phases:
       - npm install
       - npm run build
       - rm -rf .gitignore
-      - rm -rf node_modules/
       - rm -rf package-lock.json 
       - rm -rf public
       - rm -rf src
