@@ -5,6 +5,9 @@ env:
     build_ssh_key: "build-ssh-key-secure"
 
 phases:
+  install:	
+    runtime-versions:	
+      nodejs: 10
   build:
     commands:
       - mkdir -p ~/.ssh
