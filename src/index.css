@@ -127,10 +127,12 @@ input::-webkit-inner-spin-button {
   font-family: 'aleo';
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 }
 
 .container select option {
-  color: black;
+  color: #559995;
+  background: #fdf7e7;
 }
 
 .container .amount {
