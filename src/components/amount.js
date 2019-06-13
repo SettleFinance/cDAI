@@ -11,7 +11,7 @@ export default class Amount extends React.Component {
     if(pair==undefined) pair = {}
     return (
       <div className="amount">
-        <input type="number" defaultValue="1" onChange={(e)=>changeAmount(e.target.value, bottom)} value={input[bottom?'bottom':'top']} /> {bottom&&pair.to}
+        <input type="number" defaultValue="1" className={input['top']==input['bottom']&&'input-loading'} nChange={(e)=>changeAmount(e.target.value, bottom)} value={input[bottom?'bottom':'top']} /> {bottom&&pair.to}
       </div>
     );
   }
