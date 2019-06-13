@@ -49,7 +49,7 @@ class App extends Component {
     // reset order in UI
     this.setState({order: orderModel})
     // get the best price for the pair and amount
-    let trade = await sdk.getTrade({to: type=='buy'?pair.to:pair.from, from: type=='buy'?pair.from:pair.to, amount: input['top']})
+    let trade = await sdk.getTrade({to: type=='buy' ? pair.to:pair.from, from: type=='buy' ? pair.from:pair.to, amount: input['top']})
     this.setState({order: trade, purchase_type}, ()=>this.setInputs())
     console.log(trade)
   }
