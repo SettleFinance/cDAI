@@ -27,7 +27,7 @@ class App extends Component {
         bottom: 1
       },
       pair: {
-        to: 'CDAI',
+        to: 'cDAI',
         from: 'DAI'
       },
       type: 'buy',
