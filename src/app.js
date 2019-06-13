@@ -31,7 +31,8 @@ class App extends Component {
         from: 'DAI'
       },
       type: 'buy',
-      purchase_type: false
+      purchase_type: false,
+      loaded: false
     }
   }
   componentDidMount(){
@@ -50,7 +51,7 @@ class App extends Component {
     this.setState({order: orderModel})
     // get the best price for the pair and amount
     let trade = await sdk.getTrade({to: type=='buy' ? pair.to:pair.from, from: type=='buy' ? pair.from:pair.to, amount: input['bottom']})
-    this.setState({order: trade, purchase_type}, ()=>this.setInputs())
+    this.setState({order: trade, purchase_type, loaded: true}, ()=>this.setInputs())
     console.log(trade)
   }
   changeAmount = (amount, type) => {
@@ -106,7 +107,7 @@ class App extends Component {
   }
   render() {
     let {source} = this.state.order.metadata;
-    let {order, pair, web3Status, input, type} = this.state;
+    let {order, pair, web3Status, input, type, loaded} = this.state;
     return (
       <div className="app">
         <Info />
@@ -119,6 +120,7 @@ class App extends Component {
           changeToken={this.changeToken}
           changeType={this.changeType}
           type={type}
+          loaded={loaded}
           input={input} />
 
           <Totals source={source} pair={pair} />
