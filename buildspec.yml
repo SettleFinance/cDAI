@@ -5,9 +5,6 @@ env:
     build_ssh_key: "build-ssh-key-secure"
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 10
   build:
     commands:
       - mkdir -p ~/.ssh
@@ -16,13 +13,6 @@ phases:
       - echo Beginning Build
       - npm install
       - npm run build
-      - rm -rf .gitignore
-      - rm -rf node_modules/
-      - rm -rf package-lock.json 
-      - rm -rf public
-      - rm -rf src
-      - cp -R build/. .
-      - rm -rf build/
       - ls -la
       - echo Build Complete
 artifacts:
