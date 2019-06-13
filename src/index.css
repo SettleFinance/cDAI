@@ -205,6 +205,10 @@ input::-webkit-inner-spin-button {
   margin-left: -12px;
 }
 
+.container .amount .input-loading{
+  color: #fdf7e7;
+}
+
 @media(max-width:500px) {
   .container {
     box-sizing: border-box;
