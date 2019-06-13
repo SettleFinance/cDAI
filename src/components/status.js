@@ -28,7 +28,7 @@ export default class Status extends React.Component {
           {status=='failed'&&<h3>Trade failed - {this.etherScan(data)}</h3>}
           {status=='bancor_notice'&&<h3><strong>Bancor Notice:</strong> Changing the gas price will result in a failed transaction</h3>}
           {(status=='send_trade'||status=='send_wrap')&&<h3>Waiting to be mined - {this.etherScan(data)}</h3>}
-          {(status=='mined_trade'||status=='mined_approve'||status=='mined_wrap')&&<h3> <img src="/checkmark.png" /> Transaction mined - {this.etherScan(data)}</h3>}
+          {(status=='mined_trade'||status=='mined_approve'||status=='mined_wrap')&&<h3> <img src="/checkmark.svg" /> Transaction mined - {this.etherScan(data)}</h3>}
           <h2 onClick={closeStatus}>Close</h2>
         </div>}
       </div>
