@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {DEXAG} from 'dexag-sdk'
+import DEXAG from 'dexag-sdk'
 
 // Components
 import Totals from './components/totals'
@@ -10,7 +10,10 @@ import Footer from './components/footer'
 import Button from './components/button'
 import Utility from './utility'
 
-const sdk = new DEXAG()
+console.log(DEXAG.fromProvider)
+
+const sdk = DEXAG.fromProvider(window.ethereum)
+
 const orderModel = {
   metadata: {
     source: {}
@@ -50,7 +53,7 @@ class App extends Component {
     // reset order in UI
     this.setState({order: orderModel})
     // get the best price for the pair and amount
-    let trade = await sdk.getTrade({to: type=='buy' ? pair.to:pair.from, from: type=='buy' ? pair.from:pair.to, amount: input['bottom']})
+    let trade = await sdk.getTrade({to: type=='buy' ? pair.to:pair.from, from: type=='buy' ? pair.from:pair.to, toAmount: input['bottom'], dex: 'best'})
     this.setState({order: trade, purchase_type, loaded: true}, ()=>this.setInputs())
     console.log(trade)
   }
@@ -76,10 +79,10 @@ class App extends Component {
   trade = async() =>{
     let {order} = this.state;
     // start web3 validation process
-    const valid = await sdk.validateWeb3(order);
+    const valid = await sdk.validate(order);
     if (valid) {
       // web3 is valid, trade order
-      sdk.tradeOrder({tx: order});
+      sdk.trade(order);
     }
   }
   closeStatus = () => {
