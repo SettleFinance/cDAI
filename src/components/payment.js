@@ -10,7 +10,7 @@ export default class Payment extends React.Component {
     };
   }
   render() {
-    let {pair, changeAmount, findTrades, changeToken, changeType, type} = this.props;
+    let {pair, changeAmount, findTrades, changeToken, changeType, type, input} = this.props;
     return (
       <div className="title">
         <div className="buy-sell">
@@ -19,12 +19,12 @@ export default class Payment extends React.Component {
         </div>
         <div>
           <p>{type=='buy'?'pay':'receive'}:</p>
-          <Amount changeAmount={changeAmount} pair={pair} bottom={false} />
+          <Amount changeAmount={changeAmount} pair={pair} bottom={false} input={input} />
           <Token type="from" pair={pair} findTrades={findTrades} changeToken={changeToken}/>
         </div>
         <div>
           <p>for:</p>
-          <Amount changeAmount={changeAmount} pair={pair} bottom={true} />
+          <Amount changeAmount={changeAmount} pair={pair} bottom={true} input={input} />
         </div>
       </div>
     );

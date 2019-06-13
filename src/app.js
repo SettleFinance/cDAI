@@ -22,12 +22,16 @@ class App extends Component {
     super(props);
     this.state = {
       order: orderModel,
-      amount: 1,
+      input: {
+        top: 1,
+        bottom: 1
+      },
       pair: {
         to: 'CDAI',
         from: 'DAI'
       },
-      type: 'buy'
+      type: 'buy',
+      purchase_type: false
     }
   }
   componentDidMount(){
@@ -41,16 +45,12 @@ class App extends Component {
     this.findTrades()
   }
   findTrades = async(purchase_type) =>{
-    let {amount, pair, type} = this.state;
+    let {input, pair, type} = this.state;
     // reset order in UI
     this.setState({order: orderModel})
     // get the best price for the pair and amount
-    let trade = await sdk.getTrade({to: type=='buy'?pair.to:pair.from, from: type=='buy'?pair.from:pair.to, amount: amount})
-    this.setState({order: trade}, ()=>{
-      let {source} = trade.metadata;
-      console.log(purchase_type, source.price, amount)
-      document.getElementById('amount-top').value = Utility.formatPrice(type=='buy'?source.price*amount:amount/source.price);
-    })
+    let trade = await sdk.getTrade({to: type=='buy'?pair.to:pair.from, from: type=='buy'?pair.from:pair.to, amount: input['top']})
+    this.setState({order: trade, purchase_type}, ()=>this.setInputs())
     console.log(trade)
   }
   changeAmount = (amount, type) => {
@@ -58,7 +58,9 @@ class App extends Component {
     if(!(amount>0)) return;
     // update amount
     console.log('type', type)
-    if(type) this.setState({amount: amount})
+    let {input} = this.state;
+    input[type?'bottom':'top'] = amount;
+    this.setState({input})
     // reset order in UI
     this.setState({order: orderModel})
     Utility.debounce(this.findTrades, type)
@@ -95,9 +97,19 @@ class App extends Component {
       if(prev_type != type) this.findTrades()
     })
   }
+  setInputs = () =>{
+    let {input, pair, type, purchase_type, order} = this.state;
+    let {source} = order.metadata;
+    if(purchase_type || purchase_type==undefined){
+      input['top'] = Utility.formatPrice(type=='buy' ? source.price*input['bottom'] : input['bottom']/source.price)
+    }else if(!purchase_type){
+      input['bottom'] = Utility.formatPrice(type=='buy' ? input['top']/source.price : source.price*input['top'])
+    }
+    this.setState({input})
+  }
   render() {
     let {source} = this.state.order.metadata;
-    let {order, pair, web3Status, amount, type} = this.state;
+    let {order, pair, web3Status, input, type} = this.state;
     return (
       <div className="app">
         <Info />
@@ -109,15 +121,16 @@ class App extends Component {
           findTrades={this.findTrades}
           changeToken={this.changeToken}
           changeType={this.changeType}
-          type={type} />
+          type={type}
+          input={input} />
 
-          <Totals source={source} amount={amount} pair={pair} />
+          <Totals source={source} pair={pair} />
 
           <Button
           order={order}
           orderModel={orderModel}
           trade={this.trade}
-          amount={amount}
+          input={input}
           source={source}
           pair={pair}
           type={type} />

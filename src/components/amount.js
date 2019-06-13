@@ -7,11 +7,11 @@ export default class Amount extends React.Component {
     };
   }
   render() {
-    let {changeAmount, pair, bottom} = this.props;
+    let {changeAmount, pair, bottom, input} = this.props;
     if(pair==undefined) pair = {}
     return (
       <div className="amount">
-        <input type="number" defaultValue="1" onChange={(e)=>changeAmount(e.target.value, bottom)} id={bottom?'amount-bottom':'amount-top'} /> {bottom&&pair.to}
+        <input type="number" defaultValue="1" onChange={(e)=>changeAmount(e.target.value, bottom)} value={input[bottom?'bottom':'top']} /> {bottom&&pair.to}
       </div>
     );
   }
