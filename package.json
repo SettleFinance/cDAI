@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "cross-env": "^5.2.0",
-    "dexag-sdk": "2.1.0",
+    "dexag-sdk": "2.1.6",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.3.1",
     "react": "^16.4.1",
@@ -12,11 +12,12 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-router-native": "^4.3.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "serve": "^11.0.1"
   },
   "scripts": {
     "start": "cross-env PORT=3000 react-scripts start",
-    "start:prod": "PORT=3000 node node_modules/react-scripts/bin/react-scripts start",
+    "start:prod": "serve -s build -l 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
