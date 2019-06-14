@@ -1,11 +1,11 @@
 ## Documentation
 See the [DEXAG Docs](https://docs.dex.ag)  
-View the app running live [DEXAG Checkout](https://cdai.io)
+View the app running live [cDAI.io](https://cdai.io)
 
 ## Installation
 Install the packages with:
 ```
-npm install
+npm install 
 ```
 
 ## Start the app
