@@ -1,6 +1,6 @@
 ## Documentation
 See the [DEXAG Docs](https://docs.dex.ag)  
-View the app running live [DEXAG Checkout](https://checkout.dex.ag)
+View the app running live [DEXAG Checkout](https://cdai.io)
 
 ## Installation
 Install the packages with:
