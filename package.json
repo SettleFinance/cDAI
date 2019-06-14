@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "cross-env": "^5.2.0",
-    "dexag-sdk": "1.x",
+    "dexag-sdk": "github:SettleFinance/DEXAG-SDK#master",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.3.1",
     "react": "^16.4.1",

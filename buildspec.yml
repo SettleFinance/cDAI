@@ -13,8 +13,10 @@ phases:
       - mkdir -p ~/.ssh
       - echo "$build_ssh_key" > ~/.ssh/id_rsa
       - chmod 600 ~/.ssh/id_rsa
+      - rm -rf build/
       - echo Beginning Build
       - npm install
+      - ls -la
       - npm run build
       - ls -la
       - echo Build Complete
