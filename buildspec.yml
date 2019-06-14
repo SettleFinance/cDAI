@@ -17,6 +17,7 @@ phases:
       - echo Beginning Build
       - npm install
       - ls -la
+      - ls -d "$PWD/"*
       - npm run build
       - ls -la
       - echo Build Complete
