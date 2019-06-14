@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "cross-env PORT=3000 react-scripts start",
-    "start:prod": "serve -s build -l 3000",
+    "start:prod": "node node_modules/serve/bin/serve.js -s build -l 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
