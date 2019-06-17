@@ -28,4 +28,5 @@
 .footer-links a{
   display: inline-block;
   color: #757575;
+  margin: 0 6px;
 }
