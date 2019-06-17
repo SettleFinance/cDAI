@@ -7,6 +7,7 @@ export default class Status extends React.Component {
     };
   }
   etherScan = (data) => {
+    if(!data) return;
     return <a href={`https://etherscan.io/tx/${data}`} target="_blank">{data.substring(0,8)}</a>;
   }
   render() {

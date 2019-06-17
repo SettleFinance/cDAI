@@ -19,9 +19,9 @@ export default class Footer extends React.Component {
           Please <a href="https://github.com/SettleFinance/cDAI" target="_blank">fork it.</a>
         </div>
         <div className="footer-links">
-          <a href="https://DEX.AG" target="_blank">DEX.AG</a> |
-          <a href="https://twitter.com/dex_ag" target="_blank">Twitter</a> |
-          <a href="https://discord.gg/UUGrGNG" target="_blank">Discord</a> |
+          <a href="https://DEX.AG" target="_blank">DEX.AG</a>|
+          <a href="https://twitter.com/dex_ag" target="_blank">Twitter</a>|
+          <a href="https://discord.gg/UUGrGNG" target="_blank">Discord</a>|
           <a href="https://dex.ag/feedback" target="_blank">Feedback</a>
         </div>
         <span>
