@@ -5,7 +5,7 @@ View the app running live [cDAI.io](https://cdai.io)
 ## Installation
 Install the packages with:
 ```
-npm install  
+npm install 
 ```
 
 ## Start the app
