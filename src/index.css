@@ -155,7 +155,7 @@ input::-webkit-inner-spin-button {
 .info {
   text-align: center;
   color: white;
-  margin-top: 70px;
+  margin-top: 20px;
 }
 
 .info h3 {
@@ -220,5 +220,17 @@ input::-webkit-inner-spin-button {
   .info h3 {
     font-size: 16px;
     padding: 0 15px;
+  }
+  .title{
+    width: fit-content;
+    margin: auto;
+  }
+  .footer-text{
+    max-width: 95%;
+  }
+}
+@media(min-height: 750px){
+  .info{
+    margin-top: 60px;
   }
 }

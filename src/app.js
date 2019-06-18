@@ -88,6 +88,7 @@ class App extends Component {
     }
   }
   closeStatus = () => {
+    // close status message container
     this.setState({web3Status: {}})
   }
   timeoutStatus = (status) => {
@@ -103,6 +104,7 @@ class App extends Component {
   setInputs = () =>{
     let {input, pair, type, purchase_type, order} = this.state;
     let {source} = order.metadata;
+    // update inputs with price
     input = Utility.inputPrice({purchase_type, type, source, input})
     this.setState({input})
   }
