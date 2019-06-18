@@ -52,11 +52,9 @@ class App extends Component {
     this.setState({order: orderModel})
     // get the best price for the pair and amount
     var request = {to: type=='buy' ? pair.to:pair.from, from: type=='buy' ? pair.from:pair.to, dex: 'best'};
-    if(purchase_type || purchase_type==undefined){
-      type=='buy'? request['toAmount'] = input['bottom']: request['fromAmount'] = input['bottom'];
-    }else if(!purchase_type){
-      type=='buy'? request['fromAmount'] = input['top']: request['toAmount'] = input['top'];
-    }
+    // handle top/bottom inputs
+    request = Utility.inputAmount({type, request, purchase_type, input})
+    // get trade details
     let trade = await sdk.getTrade(request)
     this.setState({order: trade, purchase_type, loaded: true}, ()=>this.setInputs())
     console.log(trade)
@@ -105,11 +103,7 @@ class App extends Component {
   setInputs = () =>{
     let {input, pair, type, purchase_type, order} = this.state;
     let {source} = order.metadata;
-    if(purchase_type || purchase_type==undefined){
-      input['top'] = Utility.formatPrice(type=='buy' ? source.price*input['bottom'] : input['bottom']*source.price)
-    }else if(!purchase_type){
-      input['bottom'] = Utility.formatPrice(type=='buy' ? input['top']*source.price : source.price*input['top'])
-    }
+    input = Utility.inputPrice({purchase_type, type, source, input})
     this.setState({input})
   }
   render() {
