@@ -2,6 +2,7 @@ var Utility = {
   formatPrice: (price) => {
     // handle large and small values
     price = parseFloat(price)
+    if(Number.isInteger(price)) return price;
     return price>1?price.toFixed(2):price.toPrecision(4)
   },
   cleanDex: (dex) => {
