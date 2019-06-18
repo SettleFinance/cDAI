@@ -18,6 +18,22 @@ var Utility = {
       func(args)
       this.timer = null;
     }.bind(this), 750);
+  },
+  inputAmount: ({type, request, purchase_type, input}) => {
+    if(purchase_type || purchase_type==undefined){
+      type=='buy'? request['toAmount'] = input['bottom']: request['fromAmount'] = input['bottom'];
+    }else if(!purchase_type){
+      type=='buy'? request['fromAmount'] = input['top']: request['toAmount'] = input['top'];
+    }
+    return request
+  },
+  inputPrice: ({purchase_type, type, source, input}) => {
+    if(purchase_type || purchase_type==undefined){
+      input['top'] = Utility.formatPrice(type=='buy' ? source.price*input['bottom'] : input['bottom']*source.price)
+    }else if(!purchase_type){
+      input['bottom'] = Utility.formatPrice(type=='buy' ? input['top']*source.price : source.price*input['top'])
+    }
+    return input;
   }
 }
 export default Utility;

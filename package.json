@@ -1,10 +1,10 @@
 {
-  "name": "DEXAG-checkout",
+  "name": "cDAI.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "cross-env": "^5.2.0",
-    "dexag-sdk": "github:SettleFinance/DEXAG-SDK#master",
+    "dexag-sdk": "^2.1.10",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.3.1",
     "react": "^16.4.1",
