@@ -5,7 +5,7 @@ View the app running live [cDAI.io](https://cdai.io)
 ## Installation
 Install the packages with:
 ```
-npm install 
+npm install
 ```
 
 ## Start the app
@@ -14,10 +14,10 @@ npm run start
 ```
 
 ## Main SDK Usage
-The DEXAG SDK is used to get the best price for a given trading pair and amount. Using validateWeb3, the client wraps ETH, sets token allowances, or whatever other steps are required to checkout. The tradeOrder function is used to execute the trade and request the client to confirm their transaction.
+Query DEXes for the best price and execute the trade with a web3 browser.
 ```
 import {DEXAG} from 'dexag-sdk'
-const sdk = new DEXAG();
+const sdk = DEXAG.fromProvider(window.ethereum)
 
 // receive status messages as the client executes the trade
 sdk.registerStatusHandler((status, data)=>{
@@ -25,13 +25,13 @@ sdk.registerStatusHandler((status, data)=>{
 });
 
 // get trade
-const trade = await sdk.getTrade({to: 'DAI', from: 'ETH', amount: 1})
+const trade = await sdk.getTrade({to: 'DAI', from: 'ETH', toAmount: 1})
 
 // checkout
-const valid = await sdk.validateWeb3(trade);
+const valid = await sdk.validate(trade);
 if (valid) {
   // web3 is valid, trade order
-  sdk.tradeOrder({tx: trade}); /** Metamask opens **/
+  sdk.trade({tx: trade}); /** Metamask opens **/
 }
 ```
 
