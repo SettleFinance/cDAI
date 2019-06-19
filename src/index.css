@@ -205,7 +205,7 @@ input::-webkit-inner-spin-button {
 .token-dropdown-container img{
   position: absolute;
   top: 8px;
-  margin-left: -20px;
+  margin-left: -16px;
   z-index: -1;
 }
 
