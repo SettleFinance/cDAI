@@ -150,6 +150,8 @@ input::-webkit-inner-spin-button {
   margin-top: 20px;
   border-radius: 2px;
   margin-right: 35px;
+  font-size: 14px;
+  font-family: 'aleo';
 }
 
 .info {
@@ -232,6 +234,19 @@ input::-webkit-inner-spin-button {
   }
   .container button{
     width: 290px;
+  }
+  .container .amount input{
+    margin-right: 30px;
+  }
+  .footer-links span{
+    display: none;
+  }
+  .footer-links a{
+    margin: 2px 5px;
+  }
+  .footer-container{
+    width: 290px;
+    margin: 25px auto;
   }
 }
 @media(min-height: 750px){

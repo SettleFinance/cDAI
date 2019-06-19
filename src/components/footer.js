@@ -22,6 +22,7 @@ export default class Footer extends React.Component {
           <a href="https://DEX.AG" target="_blank">DEX.AG</a>|
           <a href="https://twitter.com/dex_ag" target="_blank">Twitter</a>|
           <a href="https://discord.gg/UUGrGNG" target="_blank">Discord</a>|
+          <a href="https://defipulse.com/blog" target="_blank">Blog</a><span>|</span>
           <a href="https://dex.ag/feedback" target="_blank">Feedback</a>
         </div>
         <span>
