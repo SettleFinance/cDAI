@@ -199,12 +199,14 @@ input::-webkit-inner-spin-button {
   width: 100%;
   padding-left: 1px;
   outline: none;
+  line-height: 15px;
 }
 
 .token-dropdown-container img{
   position: absolute;
-  top: 10px;
+  top: 8px;
   margin-left: -20px;
+  z-index: -1;
 }
 
 .container .amount .input-loading{
