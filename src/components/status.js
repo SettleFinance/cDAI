@@ -18,7 +18,7 @@ export default class Status extends React.Component {
       <div className="status-message">
         {status&&<div>
           {status=='init'&&<h3>Preparing the trade…</h3>}
-          {status=='web3_undefined'&&<h3>Enable your wallet and reload the page</h3>}
+          {status=='web3_undefined'&&<h3>Enable your wallet (metamask, coinbase wallet, ect) and reload the page</h3>}
           {status=='network'&&<h3>Switch to main Ethereum network</h3>}
           {status=='balance'&&<h3>Your balance is insufficient</h3>}
           {status=='rejected'&&<h3>Trade rejected</h3>}
