@@ -146,7 +146,7 @@ input::-webkit-inner-spin-button {
   padding: 5px 10px;
   border: 1px solid #559995;
   color: #757575;
-  width: 80px;
+  width: 90px;
   margin-top: 20px;
   border-radius: 2px;
   margin-right: 35px;
@@ -203,8 +203,8 @@ input::-webkit-inner-spin-button {
 
 .token-dropdown-container img{
   position: absolute;
-  top: 9px;
-  margin-left: -12px;
+  top: 10px;
+  margin-left: -20px;
 }
 
 .container .amount .input-loading{
@@ -227,6 +227,9 @@ input::-webkit-inner-spin-button {
   }
   .footer-text{
     max-width: 95%;
+  }
+  .container button{
+    width: 290px;
   }
 }
 @media(min-height: 750px){
