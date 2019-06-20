@@ -12,7 +12,7 @@ export default class Footer extends React.Component {
     return (
       <div className="footer-container">
         <span>
-          <a href="/" target="_blank" className="standalone-link">What is cDAI</a>?
+          <a href="https://defipulse.com/blog/what-is-cdai/" target="_blank" className="standalone-link">What is cDAI</a>?
         </span>
         <div className="footer-text">
           cDAI.io searches Kyber, Bancor, Uniswap and Radar Relay. This site is powered by the <a href="https://docs.dex.ag" target="_blank">DEX.AG SDK</a>.
