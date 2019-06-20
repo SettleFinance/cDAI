@@ -7,11 +7,12 @@ export default class Token extends React.Component {
     };
   }
   render() {
-    let {type, changeToken} = this.props;
+    let {type, changeToken, pair} = this.props;
     let token = type=='to'?'cDAI':'DAI';
+    let tokenLength = 25 + (pair[type].length * 10);
     return (
       <span className="token-dropdown-container">
-        <select defaultValue={token} onChange={(e)=>changeToken(type, e.target.value)}>
+        <select defaultValue={token} onChange={(e)=>changeToken(type, e.target.value)} style={{width: `${tokenLength}px`}}>
           {token!='DAI'&&<option value="cDAI">cDAI</option>}
           <option value="DAI">DAI</option>
           <option value="ETH">ETH</option>
