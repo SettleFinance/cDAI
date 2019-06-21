@@ -20,15 +20,15 @@ var Utility = {
     }.bind(this), 750);
   },
   inputAmount: ({type, request, purchase_type, input}) => {
-    if(purchase_type || purchase_type==undefined){
+    if(purchase_type){ // bottom
        request[type=='buy'?'toAmount':'fromAmount'] = input['bottom']
-    }else if(!purchase_type){
+    }else if(!purchase_type){ // top
        request[type=='buy'?'fromAmount':'toAmount'] = input['top']
     }
     return request
   },
   inputPrice: ({purchase_type, type, source, input}) => {
-    if(purchase_type || purchase_type==undefined){
+    if(purchase_type){
       input['top'] = Utility.formatPrice(input['bottom']*source.price)
     }else if(!purchase_type){
       input['bottom'] = Utility.formatPrice(input['top']*source.price)

@@ -32,7 +32,7 @@ class App extends Component {
         from: 'DAI'
       },
       type: 'buy',
-      purchase_type: false,
+      purchase_type: true,
       loaded: false
     }
   }
@@ -53,6 +53,7 @@ class App extends Component {
     // get the best price for the pair and amount
     var request = {to: type=='buy' ? pair.to:pair.from, from: type=='buy' ? pair.from:pair.to, dex: 'best'};
     // handle top/bottom inputs
+    if(purchase_type==undefined) purchase_type = this.state.purchase_type
     request = Utility.inputAmount({type, request, purchase_type, input})
     // get trade details
     let trade = await sdk.getTrade(request)
@@ -63,10 +64,9 @@ class App extends Component {
     // update amount
     let {input} = this.state;
     input[type?'bottom':'top'] = amount;
-    this.setState({input})
-    // reset order in UI
-    this.setState({order: orderModel})
-    Utility.debounce(this.findTrades, type)
+    this.setState({input, order: orderModel}, ()=>{
+      Utility.debounce(this.findTrades, type)
+    })
   }
   changeToken = (type, token) =>{
     var pair = this.state.pair;
