@@ -24,7 +24,7 @@ export default class Status extends React.Component {
           {status=='rejected'&&<h3>Trade rejected</h3>}
           {status=='request_wrap'&&<h3>Wrap ETH to fill the trade</h3>}
           {status=='allowance'&&<h3>Unlock the token to continue</h3>}
-          {status=='bad_tx'&&<h3>The Tx is not valid</h3>}
+          {status=='bad_tx'&&<h3>The transaction is not valid, try refreshing the page.</h3>}
           {status=='unlock_wallet'&&<h3>Unlock your web3 wallet</h3>}
           {status=='failed'&&<h3>Trade failed - {this.etherScan(data)}</h3>}
           {status=='bancor_notice'&&<h3><strong>Bancor Notice:</strong> Changing the gas price will result in a failed transaction</h3>}
