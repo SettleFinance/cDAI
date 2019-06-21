@@ -32,7 +32,7 @@ class App extends Component {
         from: 'DAI'
       },
       type: 'buy',
-      purchase_type: true,
+      purchase_type: false,
       loaded: false
     }
   }
